@@ -102,16 +102,9 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
-#define SERVERA "129.105.69.140"    // server IP address (Machine A - Windows & TrackCam)
-#define PORTA    9090                // port on which to send data (Machine A)
-#define SERVERB "129.105.69.220"    // server IP address (Machine B - Linux & Mikrotron)
-#define PORTB    51717              // port on which to listen for incoming data (Machine B)
-#define BUFLEN   512                // max length of buffer
-
-
-
-
-
+#define SERVERA "129.105.69.211"    // server IP address (Machine A - Windows & TrackCam)
+#define DEFAULT_ PORT 27015              // port on which to listen for incoming data (Machine B)
+#define BUFLEN 512                // max length of buffer
 
 
 // Create UDP socket structures for Machine A and Machine B
@@ -669,7 +662,7 @@ main(void)
         // Capture sequence AVI
         CaptureSequenceAVI(NUMIMAGES_Side, FPS_Side, PULSETIME, DELAYTIME, HORIZ_AMPL, VERT_AMPL, FREQ, PHASE_OFFSET, IDENTIFIER, SAVEDSIGNAL, sock);
 
-        // Close frame grabber
+        // Close frame grabber255
 	CloseFrameGrabber();
         // Check to see if still running tests from Machine A
         ReceiveSocket(sock, buf, slen);
